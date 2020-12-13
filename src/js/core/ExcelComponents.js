@@ -1,0 +1,43 @@
+import DOMListeners from './DOMListeners';
+
+export default class ExcelComponents extends DOMListeners {
+	constructor($root, options = {}) {
+		super($root, options.listeners);
+		this.name = options.name || '';
+		this.emitter = options.emitter;
+		this.store = options.store;
+		this.subscriptions = options.subscriptions || [];
+		this.unsubscribers = [];
+		this.prepare();
+	}
+
+	toHTML() {
+		return '';
+	}
+
+	$emit(event, ...args) {
+		this.emitter.emit(event, ...args);
+	}
+
+	$on(event, fn) {
+		const unsub = this.emitter.subscribe(event, fn);
+		this.unsubscribers.push(unsub);
+	}
+
+	$dispatch(action) {
+		this.store.dispatch(action);
+	}
+
+	prepare() {}
+
+	stateChange() {}
+
+	init() {
+		this.initDomListener();
+	}
+
+	destroy() {
+		this.removeDomListener();
+		this.unsubscribers.forEach((fn) => fn());
+	}
+}

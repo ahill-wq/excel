@@ -1,0 +1,39 @@
+{
+	"parser": "babel-eslint",
+	"env": {
+		"browser": true,
+		"es2020": true,
+		"node": true,
+		"commonjs": true,
+		"jest/globals": true
+	},
+	"extends": ["airbnb-base", "plugin:prettier/recommended"],
+	"plugins": ["prettier", "jest"],
+	"parserOptions": {
+		"ecmaVersion": 11,
+		"sourceType": "module"
+	},
+	"rules": {
+		"prettier/prettier": [
+			"error",
+			{
+				"endOfLine": "auto",
+				"semi": true,
+				"trailingComma": "all",
+				"singleQuote": true,
+				"printWidth": 100,
+				"tabWidth": 2,
+				"useTabs": true
+			}
+		],
+		"no-console": "off",
+		"no-plusplus": "off",
+		"class-methods-use-this": "off",
+		"func-names": "off",
+		"no-param-reassign": "off",
+		"no-eval": "off",
+		"no-new": "off",
+		"no-use-before-define": "off",
+		"import/prefer-default-export": "off"
+	}
+}

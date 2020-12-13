@@ -1,0 +1,87 @@
+@import './mixins';
+@import './variables';
+
+.db {
+	position: relative;
+	&__header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: $db-header-height;
+		@include flexCenter;
+		box-shadow: 0 2px 5px 2px rgba(60, 64, 67, 0.15);
+		background: #fff;
+		z-index: 1000;
+	}
+
+	&__view {
+		max-width: 1170px;
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	&__new {
+		margin-top: $db-header-height;
+		background: #dadce0;
+		padding: 2rem 0;
+		height: $db-new-height;
+		&--link {
+			text-decoration: none;
+			font-weight: 800;
+			line-height: 2rem;
+			width: 10rem;
+			height: 10rem;
+			background: white;
+			@include flexCenter;
+			font-size: 1.5rem;
+			color: black;
+			text-align: center;
+			border-radius: 0.3rem;
+			border: 0.1rem solid #dadce0;
+			transition: $mainTransition;
+
+			&:hover {
+				border-color: green;
+				color: green;
+			}
+		}
+	}
+
+	&__list {
+		padding: 2rem 0;
+		&--header {
+			display: flex;
+			justify-content: space-between;
+			padding: 1rem;
+		}
+		&--list {
+			margin: 2rem 0;
+			list-style: none;
+
+			&-item {
+				margin: 1rem 0;
+				display: flex;
+				justify-content: space-between;
+				transition: $mainTransition;
+				padding: 1rem;
+
+				&:hover {
+					background: lightgreen;
+					border-radius: 3rem;
+				}
+
+				a {
+					text-decoration: none;
+					color: black;
+					font-size: 1rem;
+					transition: $mainTransition;
+
+					&:hover {
+						color: white;
+					}
+				}
+			}
+		}
+	}
+}
